@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Hackathon</title>
+
+    <!-- javascript toast -->
+    <link rel="stylesheet" type="text/css" href="css/toastify.min.css" />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="position-sticky top-0 z-1 bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <a class="navbar-brand text-info fw-bold" href="#"
+            >Mini Hackathon</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              
+            </ul>
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-warning" type="submit">
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div
+        class="container-sm d-flex justify-content-center align-items-center flex-column"
+      >
+        <div id="LOGIN-FORM" class="hide-login">
+          <div
+            class="login-page d-flex justify-content-center align-items-center flex-column"
+          >
+            <div class="form">
+              <h2 class="mb-4">Login</h2>
+              <div class="inputbox">
+                <input class="pt-2" type="text" required="" id="login-email" />
+                <label for="login-email">Email</label>
+                <!-- <i class="fa fa-envelope ms-4" style="font-size:20px"></i> -->
+              </div>
+               <div class="inputbox">
+                        <input class="pt-2" type="password" required="" id="login-password">
+                        <label for="login-password">Password</label> 
+               <i class="fa fa-lock" style="font-size:24px"></i>
+              </div>
+              <button
+                id="login-btn"
+                class="btn mt-5 btn-outline-light mt-4"
+                onclick="handleUserLogin()"
+              >
+                Login
+              </button>
+              <a href="todo.html"><button
+                id="login-btn"
+                class="btn mt-5 btn-outline-light mt-4"
+                onclick="handleUserLogin()"
+              >
+                TO-DO
+              </button></a>
+              
+            </div>
+            <div class="mt-4">
+              <p>
+                Don't Have an Account ?
+                <a href="javascript:void(0)" onclick="toggleRegisterPage()"
+                  >Register</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="REGISTER-FORM" class="hide-signup">
+          <div
+            class="register-page d-flex justify-content-center align-items-center flex-column mt-3"
+          >
+            <div class="form">
+              <h2 class="mb-4">Register</h2>
+              <div class="inputbox mb-4">
+                <input
+                  class="pt-2"
+                  type="text"
+                  required=""
+                  id="register-email"
+                />
+                <label for="register-email">Email</label>
+                <i class="fa fa-envelope ms-4" style="font-size:20px"></i> 
+              </div>
+               <div class="inputbox mt-5 ">
+                        <input class="pt-2" type="password" required="" id="register-password">
+                        <label for="register-password">Password</label>
+               <i class="fa fa-lock" style="font-size:24px"></i>
+              </div>
+              <button
+                id="register-btn"
+                class="mt-5 Register btn btn-outline-light mt-4"
+                onclick="handleUserRegister()"
+              >
+                Register
+              </button>
+            </div>
+            <div class="mt-4">
+              <p>
+                Already Have an Account ?
+                <a href="javascript:void(0)" onclick="toggleLoginPage()"
+                  >Login</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </main>
+    <footer class="mt-5">
+      <p class="mb-0">
+        Powered by
+        <a class="text-warning" href="#"> <b>Affan.</b></a>
+      </p>
+      <p class="mb-0">&copy;2024 All Rights Reserved.</p>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

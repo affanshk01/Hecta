@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Todo List</h1>
+    <button onclick="createTodo()">Create Todo</button>
+    <button onclick="readTodos()">Read Todos</button>
+    <button onclick="updateTodo()">Update Todo</button>
+    <button onclick="deleteTodo()">Delete Todo</button>
+    <button onclick="showTable()">Show Table</button>
+    <br><br>
+    <div id="tableContainer"></div>
+    <script>
+        let todos = [
+            { title: "Title 1", date: new Date(), id: "uniqueId1", isCompleted: false },
+            { title: "Title 2", date: new Date(), id: "uniqueId2", isCompleted: false },
+            { title: "Title 3", date: new Date(), id: "uniqueId3", isCompleted: false },
+        ];
+
+        function createTodo() {
+            const newTodo = { title: "Title 4", date: new Date(), id: "uniqueId4", isCompleted: false };
+            todos.push(newTodo);
+            console.log("Todo Created:", newTodo);
+        }
+
+        function readTodos() {
+            console.log("Todos:", todos);
+        }
+
+        function updateTodo() {
+            const todo = todos.find(todo => todo.title === "Title 2");
+            if (todo) {
+                todo.isCompleted = true;
+                console.log("Todo Updated:", todo);
+            } else {
+                console.log("Todo not found");
+            }
+        }
+
+        function deleteTodo() {
+            const index = todos.findIndex(todo => todo.title === "Title 3");
+            if (index !== -1) {
+                const deletedTodo = todos.splice(index, 1);
+                console.log("Todo Deleted:", deletedTodo[0]);
+            } else {
+                console.log("Todo not found");
+            }
+        }
+
+        function showTable() {
+            const tableContainer = document.getElementById('tableContainer');
+            tableContainer.innerHTML = ''; // Clear previous table
+            const table = document.createElement('table');
+            const thead = document.createElement('thead');
+            const tbody = document.createElement('tbody');
+
+            // Creating table headers
+            const headers = ['Title', 'Date', 'ID', 'Is Completed'];
+            const tr = document.createElement('tr');
+            headers.forEach(header => {
+                const th = document.createElement('th');
+                th.innerText = header;
+                tr.appendChild(th);
+            });
+            thead.appendChild(tr);
+
+            // Creating table rows
+            todos.forEach(todo => {
+                const tr = document.createElement('tr');
+                Object.values(todo).forEach(value => {
+                    const td = document.createElement('td');
+                    td.innerText = value instanceof Date ? value.toLocaleString() : value;
+                    tr.appendChild(td);
+                });
+                tbody.appendChild(tr);
+            });
+
+            table.appendChild(thead);
+            table.appendChild(tbody);
+            tableContainer.appendChild(table);
+        }
+    </script>
+</body>
+</html>
